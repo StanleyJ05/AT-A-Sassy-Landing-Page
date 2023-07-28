@@ -1,4 +1,6 @@
-
+@import "_btnConfig";
+@import "_utilities";
+@import "_config";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,8 +20,6 @@ img {
 a {
   text-decoration: none;
 }
-
-.hero {
   // This is where the bulk of the SCSS styling needs to be done
 
   // Take a look at the other files we've built already. How can they be useful here?
@@ -28,6 +28,52 @@ a {
   // 1. $variables
   // 2. nesting (dont forget about the ampersand (&) parent selector!)
   // 3. At-Rules
+.hero {
+  @include set-bg($primary-color);
+  height: 600px;
+
+  nav{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    li {
+      padding: 15px;
+    }
+
+    a {
+      color: text-color-picker($primary-color);
+
+      &:hover {
+      color: $secondary-color;
+
+      }
+    }
+  }
+  &-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    img {
+      height: 50%;
+      width: 50%;
+    }
+
+    h1 {
+      font-size: 50px;
+      line-height: 1.2;
+    }
+  }
+
 }
 
 // This code is related to some of the aspects of SCSS we have yet to cover.
